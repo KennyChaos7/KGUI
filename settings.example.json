@@ -1,0 +1,6 @@
+{
+  "nodePath": "<project-root>\\.tools\\node\\node.exe",
+  "codexEntry": "<user-profile>\\AppData\\Roaming\\npm\\node_modules\\@openai\\codex\\bin\\codex.js",
+  "piProvider": "openai-codex",
+  "piModel": "gpt-6.1-sol:high"
+}

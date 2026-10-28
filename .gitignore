@@ -1,0 +1,18 @@
+.tools/
+.local/
+.superpowers/
+node_modules/
+
+# Local agent guidance and development records
+AGENTS.md
+.agents/
+.codex/
+/实施步骤.md
+/docs/
+
+# Local tests and their fixtures
+*_test.go
+*.test.ts
+tests/
+test-fixtures/
+/scripts/check-live.ps1

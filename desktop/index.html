@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>KGUI</title>
+    <link rel="stylesheet" href="./src/style.css" />
+  </head>
+  <body>
+    <main id="project-screen" class="project-screen">
+      <section class="project-card" aria-labelledby="selection-title">
+        <div class="brand"><span class="brand-mark">K</span><span>KGUI</span></div>
+        <span class="eyebrow">一个项目，专注完成</span>
+        <h1 id="selection-title">从一个项目开始</h1>
+        <p class="selection-description">选择 Git 仓库，开始与 Pi 协作。</p>
+        <button id="browse-project" class="browse-button" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3 7a2 2 0 0 1 2-2h5l2 2h7a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2Z"/></svg>选择项目文件夹<span>↗</span></button>
+        <div class="selection-divider"><span>或输入项目路径</span></div>
+        <form id="project-form" class="path-form"><label for="project-path" class="sr-only">Git 项目路径</label><input id="project-path" placeholder="F:\your-project" autocomplete="off" spellcheck="false" autofocus /><button id="open-project" type="submit" class="secondary">打开</button></form>
+        <p id="opening-state" role="status" class="selection-note">以只读模式打开，可在工作区允许修改。</p>
+      </section>
+      <span class="selection-footer">Pi 组织任务 · Codex 执行</span>
+    </main>
+
+    <main id="workspace" class="workspace" hidden>
+      <header class="workspace-header">
+        <div class="project-heading"><span class="brand-mark small">K</span><div><h1 id="project-title"></h1><p id="project-location"></p></div></div>
+        <div class="workspace-actions"><span id="status" role="status"><i></i><span id="status-text">准备就绪</span></span><label class="permission"><input type="checkbox" id="allow-edits" /><span>允许修改</span></label><button id="reconnect" class="secondary compact" type="button" hidden>重新连接</button><button id="change-project" class="secondary compact" type="button">更换项目</button></div>
+      </header>
+      <div class="panes">
+        <section class="conversation" aria-label="与 Pi 对话">
+          <div class="pane-heading"><div><h2>与 Pi 对话</h2><p id="phase">准备接收任务</p></div><span class="pi-label">主控 · Pi</span></div>
+          <div id="messages" aria-live="polite"></div>
+          <form id="task-form" class="composer"><label for="task" class="sr-only">任务内容</label><textarea id="task" rows="3" placeholder="描述目标、范围与希望得到的结果…" disabled></textarea><div class="composer-actions"><span id="model" class="model-label"></span><div><span class="shortcut">Ctrl + Enter</span><button id="stop" type="button" class="secondary" disabled>停止</button><button id="send" type="submit" disabled>发送 ↑</button></div></div></form>
+        </section>
+        <section class="task-pane" aria-label="Pi 委派详情">
+          <div class="pane-heading"><div><h2>委派详情 <span id="delegation-count" class="count">0</span></h2><p>任务原文 · 执行证据 · 返回结果</p></div></div>
+          <div id="delegations"></div>
+        </section>
+      </div>
+    </main>
+    <div id="error" role="alert" hidden><span id="error-text"></span><button id="dismiss-error" type="button" aria-label="关闭提示">×</button></div>
+    <script type="module" src="./src/main.ts"></script>
+  </body>
+</html>
